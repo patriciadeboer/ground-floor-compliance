@@ -2,6 +2,10 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+  html, body, #root {
+    height: 100%;
+  }
+
   body {
     margin: 0;
     padding: 0;
@@ -9,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.6;
     background: #fff;
     color: #222;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3 {
@@ -19,6 +24,20 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  /* Add for mobile styling */
+   /* Improve mobile tap targets + scrolling */
+  button, a, input, textarea { touch-action: manipulation; }
+
+  img, video { max-width: 100%; height: auto; display: block; }
+
+    /* Make sizing predictable */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  /* Fluid type: min 16px, pref 2.2vw, max 18px */
+  html { font-size: clamp(16px, 2.2vw, 18px); }
+
+
 `;
 
 export default GlobalStyle;

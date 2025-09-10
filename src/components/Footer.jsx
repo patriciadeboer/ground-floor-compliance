@@ -12,7 +12,7 @@ const FooterWrapper = styled.footer`
 export default function Footer() {
   return (
     <FooterWrapper>
-      <p>© {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+      <p>© {new Date().getFullYear()} Ground Floor Compliance. All rights reserved.</p>
     </FooterWrapper>
   );
 }

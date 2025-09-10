@@ -21,7 +21,7 @@ const Nav = styled.nav`
 export default function Header() {
   return (
     <HeaderWrapper>
-      <h1>ISO Compliance Consulting</h1>
+      <h1>Ground Floor Compliance</h1>
       <Nav>
         <Link to="/">Home</Link>
         <Link to="/services">Services</Link>
