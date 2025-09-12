@@ -1,13 +1,8 @@
-import styled from "styled-components";
+import { Helmet } from "react-helmet-async";
 import Hero from "../components/Hero";
 import HeroSideBySide from "../components/HeroSideBySide";
-import { Helmet } from "react-helmet-async";
+import QuickLinksSection from "../components/QuickLinksSection";
 
-const Section = styled.section`
-  padding: 2rem;
-  max-width: 800px;
-  margin: auto;
-`;
 
 export default function Home() {
   return (
@@ -47,6 +42,7 @@ export default function Home() {
       {/* Visible Content */}
       <Hero />
       <HeroSideBySide />
+      <QuickLinksSection />
     </>
   );
 }

@@ -54,10 +54,21 @@ const ServiceCard = styled(Link)`
   text-align: center;
   cursor: pointer;  /* 👈 makes it feel clickable */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Desktop hover */
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    }
+  }
 
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  /* Mobile active (tap feedback) */
+  @media (hover: none) and (pointer: coarse) {
+    &:active {
+      transform: scale(0.98);
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
   }
 
   h3 {
@@ -86,9 +97,20 @@ const IconWrapper = styled.div`
   font-size: 1.75rem;
   transition: background 0.3s ease, transform 0.3s ease;
 
-  ${ServiceCard}:hover & {
-    background: ${({ theme }) => theme.colors.secondary};
-    transform: scale(1.1);
+    /* Desktop hover */
+  @media (hover: hover) and (pointer: fine) {
+    ${ServiceCard}:hover & {
+      background: ${({ theme }) => theme.colors.secondary};
+      transform: scale(1.1);
+    }
+  }
+
+  /* Mobile tap feedback */
+  @media (hover: none) and (pointer: coarse) {
+    ${ServiceCard}:active & {
+      transform: scale(0.95);
+      background: ${({ theme }) => theme.colors.secondary};
+    }
   }
 `;
 
@@ -118,39 +140,7 @@ export default function Services() {
             <h3>{service.title}</h3>
             <p>{service.description}</p>
           </ServiceCard>
-      ))}
-        {/* <ServiceCard>
-          <IconWrapper>
-            <FiSettings />
-          </IconWrapper>
-          <h3>ISO Strategy</h3>
-          <p>
-            We guide your team through ISO 9001 and ISO 13485 with tailored
-            strategies that fit your operations.
-          </p>
-        </ServiceCard>
-
-        <ServiceCard>
-          <IconWrapper>
-            <FiBarChart2 />
-          </IconWrapper>
-          <h3>Business Goals</h3>
-          <p>
-            Our focus is aligning compliance with your business objectives, so
-            technology and processes actually drive growth.
-          </p>
-        </ServiceCard>
-
-        <ServiceCard>
-          <IconWrapper>
-            <FiClipboard />
-          </IconWrapper>
-          <h3>Audit Support</h3>
-          <p>
-            From gap analysis to internal auditing, we help you stay ahead of
-            regulatory requirements without the headaches.
-          </p>
-        </ServiceCard> */}
+        ))}
       </ServicesGrid>
     </>
   );
