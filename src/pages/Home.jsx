@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import Hero from "../components/Hero";
+import HeroSideBySide from "../components/HeroSideBySide";
+import { Helmet } from "react-helmet-async";
 
 const Section = styled.section`
   padding: 2rem;
@@ -8,9 +11,42 @@ const Section = styled.section`
 
 export default function Home() {
   return (
-    <Section id="hero">
-      <h2>Helping Businesses Achieve ISO Certification</h2>
-      <p>Expert consulting for ISO 9001, ISO 13485, and more.</p>
-    </Section>
+    <>
+      {/* SEO */}
+      <Helmet>
+        <title>ISO Compliance Consulting | Ground Floor Compliance</title>
+        <meta
+          name="description"
+          content="Expert ISO consulting services for ISO 9001, ISO 13485, and more. Helping businesses achieve certification with clarity, collaboration, and results."
+        />
+      </Helmet>
+
+      <Helmet>
+        <title>ISO Compliance Consulting | Ground Floor Compliance</title>
+        <meta
+          name="description"
+          content="Expert ISO consulting services for ISO 9001, ISO 13485, and more. Helping businesses achieve certification with clarity, collaboration, and results."
+        />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Ground Floor Compliance",
+            "url": "https://groundfloorcompliance.com",
+            "logo": "https://groundfloorcompliance.com/logo.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "info@groundfloorcompliance.com",
+              "contactType": "Customer Service",
+              "areaServed": "US"
+            }
+          }
+        `}</script>
+      </Helmet>
+
+      {/* Visible Content */}
+      <Hero />
+      <HeroSideBySide />
+    </>
   );
 }

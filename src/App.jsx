@@ -6,9 +6,11 @@ import theme from "./styles/theme";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/Home";
 import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -28,16 +30,18 @@ function App() {
       <GlobalStyle />
       <Router>
         <AppWrapper>
-            <Header />
-            <Main>
+          <ScrollToTop />
+          <Header />
+          <Main>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/services/:id" element={<ServiceDetail />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
-            </Main>
-            <Footer />
+          </Main>
+          <Footer />
         </AppWrapper>
       </Router>
     </ThemeProvider>
