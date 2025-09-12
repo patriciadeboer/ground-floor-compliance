@@ -72,7 +72,7 @@ export default function HeroSideBySide() {
       </TextContent>
 
       <ImageWrapper>
-        <img src="/process-mapping.png" alt="Consulting background" />
+        <img src="/process-mapping.webp" alt="Consulting background" />
       </ImageWrapper>
     </HeroWrapper>
   );

@@ -52,7 +52,7 @@ const HeroContent = styled.div`
 export default function Hero() {
   return (
     <HeroSection>
-      <HeroImage src="/hero-image.jpg" alt="Compliance background" />
+      <HeroImage src="/hero-image.webp" alt="Compliance background" />
       <HeroOverlay />
       <HeroContent>
         <h1>Helping Businesses Achieve ISO Certification</h1>
@@ -61,3 +61,4 @@ export default function Hero() {
     </HeroSection>
   );
 }
+
