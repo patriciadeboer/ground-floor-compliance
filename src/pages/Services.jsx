@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import services from "../data/services";
 import { FiSettings, FiBarChart2, FiClipboard } from "react-icons/fi"; // icons
+import { LinkButton } from "../components/LinkButton";
 
 const HeroSection = styled.section`
   background: ${({ theme }) => theme.colors.primary};
@@ -129,7 +130,8 @@ export default function Services() {
         <HeroSubheading>
           Helping you streamline ISO compliance and succeed with confidence
         </HeroSubheading>
-        <CTAButton href="/contact">Get Started</CTAButton>
+        {/* <CTAButton href="/contact">Get Started</CTAButton> */}
+        <LinkButton to="/contact" variant="secondary">Get Started</LinkButton>
       </HeroSection>
 
       {/* Service Cards */}

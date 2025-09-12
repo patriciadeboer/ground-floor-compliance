@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { LinkButton } from "./LinkButton";
 
 const HeroWrapper = styled.section`
   display: flex;
@@ -68,7 +69,7 @@ export default function HeroSideBySide() {
           We help companies streamline ISO compliance and unlock growth with
           scalable consulting solutions.
         </p>
-        <Button href="/contact">Get Started</Button>
+        <LinkButton to="/contact">Get Started</LinkButton>  
       </TextContent>
 
       <ImageWrapper>
