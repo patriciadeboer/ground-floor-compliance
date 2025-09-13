@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-// ✅ Define styles for each variant
+// ✅ Define variant styles
 const buttonVariants = {
   primary: css`
     background: ${({ theme }) => theme.colors.primary};
@@ -32,7 +32,13 @@ const buttonVariants = {
   `,
 };
 
-// ✅ Base styles shared across all variants
+{/* 
+  <LinkButton to="/special" color="green" hover="darkgreen">
+    Custom Green Button
+  </LinkButton> 
+*/}
+
+// ✅ Base styles
 const baseStyles = css`
   display: inline-block;
   padding: 0.75rem 1.25rem;
@@ -47,33 +53,40 @@ const baseStyles = css`
     transform: translateY(-2px);
   }
 
-  /* Apply variant styles (default: primary) */
+  /* Variant fallback */
   ${({ $variant }) => buttonVariants[$variant || "primary"]};
+
+  /* ✅ Custom color overrides */
+  ${({ $color, $hover }) =>
+    $color &&
+    css`
+      background: ${$color};
+      color: #fff;
+      border: none;
+
+      &:hover {
+        background: ${$hover || $color};
+      }
+    `}
 `;
 
 const ButtonBase = styled.button`${baseStyles}`;
 const ButtonAnchor = styled.a`${baseStyles}`;
 const ButtonLink = styled(Link)`${baseStyles}`;
 
-// ✅ Smart button component
-export function LinkButton({ to, href, children, variant = "primary", ...rest }) {
-  if (to) {
-    return (
-      <ButtonLink to={to} $variant={variant} {...rest}>
-        {children}
-      </ButtonLink>
-    );
-  }
-  if (href) {
-    return (
-      <ButtonAnchor href={href} $variant={variant} {...rest}>
-        {children}
-      </ButtonAnchor>
-    );
-  }
-  return (
-    <ButtonBase type="button" $variant={variant} {...rest}>
-      {children}
-    </ButtonBase>
-  );
+// ✅ Smart Button
+export function LinkButton({
+  to,
+  href,
+  children,
+  variant = "primary",
+  color,
+  hover,
+  ...rest
+}) {
+  const props = { $variant: variant, $color: color, $hover: hover, ...rest };
+
+  if (to) return <ButtonLink to={to} {...props}>{children}</ButtonLink>;
+  if (href) return <ButtonAnchor href={href} {...props}>{children}</ButtonAnchor>;
+  return <ButtonBase type="button" {...props}>{children}</ButtonBase>;
 }

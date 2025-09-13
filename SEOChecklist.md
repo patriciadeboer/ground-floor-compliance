@@ -10,6 +10,11 @@
 - [ ] Generate `sitemap.xml` (using `generate-sitemap.js`)  
 - [ ] Add `robots.txt` with sitemap link  
 - [ ] Submit sitemap to Google Search Console  
+How to Submit to Google:
+Once deployed, your sitemap will be available at:
+https://groundfloorcompliance.com/sitemap.xml
+Go to Google Search Console → Sitemaps → Submit this URL.
+Google will then crawl all your pages much faster.
 
 ## Content Structure
 - [ ] Ensure **one `<h1>` per page**  
